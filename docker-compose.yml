@@ -1,0 +1,33 @@
+volumes:
+  db-store:
+services:
+  app:
+    build: ./.docker/php
+    volumes:
+      - ./laravel:/usr/src/laravel
+    environment:
+      DB_HOST: db
+      DB_DATABASE: sample
+      DB_USERNAME: dbuser
+      DB_PASSWORD: dbpass
+    tty: true
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    build: ./.docker/postgres
+    volumes:
+      - db-store:/var/lib/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      DB_DATABASE: sample
+      DB_USERNAME: dbuser
+      DB_PASSWORD: dbpass
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
