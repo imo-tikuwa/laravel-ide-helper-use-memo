@@ -6,6 +6,7 @@ services:
     volumes:
       - ./laravel:/usr/src/laravel
     environment:
+      DB_CONNECTION: pgsql
       DB_HOST: db
       DB_DATABASE: sample
       DB_USERNAME: dbuser
@@ -19,6 +20,7 @@ services:
     build: ./.docker/postgres
     volumes:
       - db-store:/var/lib/postgresql
+      - ./.docker/postgres/initdb.d:/docker-entrypoint-initdb.d
     ports:
       - 5432:5432
     environment:
