@@ -14,9 +14,11 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 WORKDIR /usr/src/laravel
 
 RUN apt-get update && \
-    apt-get -y --no-install-recommends install git && \
+    apt-get -y --no-install-recommends install git \
+    libpq-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
+    docker-php-ext-install pdo_pgsql && \
     mkdir ${COMPOSER_HOME} && \
     chown -R www-data: ${COMPOSER_HOME}
 

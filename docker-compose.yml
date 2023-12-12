@@ -8,9 +8,10 @@ services:
     environment:
       DB_CONNECTION: pgsql
       DB_HOST: db
+      DB_PORT: 5432
       DB_DATABASE: sample
-      DB_USERNAME: dbuser
-      DB_PASSWORD: dbpass
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
     tty: true
     depends_on:
       db:
@@ -25,8 +26,6 @@ services:
       - 5432:5432
     environment:
       DB_DATABASE: sample
-      DB_USERNAME: dbuser
-      DB_PASSWORD: dbpass
       POSTGRES_PASSWORD: postgres
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
