@@ -4,7 +4,7 @@ services:
   app:
     build: ./.docker/php
     volumes:
-      - ./laravel:/usr/src/laravel
+      - ./laravel:/usr/src/laravel:cached
     environment:
       DB_CONNECTION: pgsql
       DB_HOST: db

@@ -4,6 +4,8 @@ init:
 
 app:
 	docker-compose exec app bash
+app-pint-fix:
+	docker-compose exec app ./vendor/bin/pint
 
 db:
 	docker-compose exec db bash
