@@ -328,7 +328,7 @@ return [
 ~~~省略~~~
 ```
 
-- 外部キーを貼ったAchievementはide-helper.phpで補完の対象としているため@property-readアノテーションは「Company|null」のままとなった
+- 外部キーを貼ったAchievementはide-helper.phpで補完の対象外としているため変化なし
 - 修正を加えていないStaffについて@property-readアノテーションが「Company|null → Company」となった
 
 ---
