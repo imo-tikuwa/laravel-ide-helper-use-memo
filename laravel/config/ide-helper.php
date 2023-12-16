@@ -159,7 +159,7 @@ return [
     'ignored_models' => [
         // User::class,
         // Company::class,
-        // Achievement::class,
+        Achievement::class,
         // Staff::class
     ],
 

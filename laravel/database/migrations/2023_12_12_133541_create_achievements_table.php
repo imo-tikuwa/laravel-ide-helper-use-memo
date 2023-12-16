@@ -15,10 +15,10 @@ return new class () extends Migration {
             $table->bigIncrements('id')->comment('実績ID');
 
             // ↓not foreign key. just a relation column.
-            $table->bigInteger('company_id')->comment('会社ID');
+            // $table->bigInteger('company_id')->comment('会社ID');
 
             // ↓foreign key.
-            // $table->foreignId('company_id')->comment('会社ID')->constrained('companies')->onDelete('cascade');
+            $table->foreignId('company_id')->comment('会社ID')->constrained('companies')->onDelete('cascade');
 
             $table->string('col1')->comment('カラム1');
             $table->string('col2')->nullable()->comment('カラム2');
