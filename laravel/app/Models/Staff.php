@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\Company|null $company
+ * @property-read \App\Models\Company $company
  * @method static \Database\Factories\StaffFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Staff newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Staff newQuery()
